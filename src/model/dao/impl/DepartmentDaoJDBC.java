@@ -38,9 +38,9 @@ public class DepartmentDaoJDBC implements DepartmentDao {
         ResultSet rs = null;
 
         try {
-            pst = conn.prepareStatement("SELECT * FROM department WHERE id = ?", Statement.RETURN_GENERATED_KEYS);
+            pst = conn.prepareStatement("SELECT * FROM department WHERE id = ?");
 
-            pst.setInt(1, 2);
+            pst.setInt(1, id);
             rs = pst.executeQuery();
             if (rs.next()) {
                 Department dep = instantiateDepartment(rs);
